@@ -1,0 +1,8 @@
+<p><%= current_user.email%></p>
+<p>
+	<% if @subscription.active %>
+		<h3>Current plan renews at: <%= Time.at(@stripe_subscription["current_period_end"]).strftime("%D") %></h3>
+	<%else %>
+		<%= render 'form' %>
+	<% end %>
+</p>
